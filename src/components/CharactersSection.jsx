@@ -28,7 +28,7 @@ const CharactersSection = () => {
     if (loading) return <p className="text-center text-white">Loading Pokémons...</p>;
 
     return (
-        <section id="characters">
+        <section id="characters" className='px-8'>
             <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
                 <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                     <h2 className="mb-2 text-2xl md:text-4xl font-extrabold text-white">Meet the Characters</h2>
@@ -39,6 +39,7 @@ const CharactersSection = () => {
                 <div className="space-y-8 grid grid-cols-1 gap-x-0 gap-y-24 md:grid-cols-3 lg:grid-cols-4  md:gap-x-8 md:gap-y-24 lg:space-y-0">
                     {pokemons.map((pokemon) => (
                         <CharacterCard
+                            key={pokemon.id}
                             id={pokemon.id}
                             name={pokemon.name}
                             image={pokemon.sprites.other.home.front_default}

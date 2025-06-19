@@ -1,12 +1,51 @@
-# React + Vite
+# 🧬 React Poxemon App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Pokémon web application built with React, featuring pagination, stats, and dynamic image rendering. Fully responsive and deployed live on Vercel.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [https://poxemon.vercel.app](https://poxemon.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📸 Preview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Poxemon Screenshot](./public/preview.png)
+
+---
+
+## 🚀 Features
+
+- 🧠 Fetch real-time Pokémon data using [PokéAPI](https://pokeapi.co/)
+- 📑 Pagination Supports
+- 📊 Display Pokémon stats (HP, Attack, Defense, etc.)
+- 💡 Responsive design with Tailwind CSS
+- 🖼️ Handles missing images gracefully
+- ⚡ Fast and optimized performance
+
+---
+
+## 📦 Tech Stack
+
+- [React.js](https://reactjs.org/)
+- [Vite](https://vitejs.dev/) for blazing-fast dev/build
+- [Tailwind CSS](https://tailwindcss.com/)
+- [PokéAPI](https://pokeapi.co/) as data source
+- [Vercel](https://vercel.com/) for deployment
+- [Animate CSS](https://animate.style/) for animation
+
+---
+
+## 🗂️ Project Structure
+
+public/
+├── assets/
+src/
+├── api/
+│   └── pokeapi.js
+├── components/
+│   └── ...
+│   └── CharacterCard.jsx
+├── pages/
+│   └── Home.jsx
+│   └── PokemonDetail.jsx
+├── App.jsx
+├── main.jsx

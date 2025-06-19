@@ -48,13 +48,13 @@ const PokemonDetail = () => {
             />
 
             <div className="relative z-10 flex flex-col items-center px-8 pt-8 pb-8 ">
-                <div className="md:w1/2 lg:mt-0 lg:col-span-5 lg:flex">
+                <div className="md:w1/2 lg:mt-0 lg:col-span-5 lg:flex animate__animated animate__fadeInUp">
                     <img src={selectedImage} alt={pokemon.name} />
                 </div>
-                <h1 className="capitalize my-4 text-3xl font-extrabold md:my-8 md:text-5xl xl:text-6xl dark:text-white">
+                <h1 className="capitalize my-4 text-3xl font-extrabold md:my-8 md:text-5xl xl:text-6xl dark:text-white animate__animated animate__fadeInUp animate__delay-1s">
                     {pokemon.name}
                 </h1>
-                <div className="p-[2px] rounded-xl bg-gradient-to-r from-violet-500 to-transparent w-full mx-auto">
+                <div className="p-[2px] rounded-xl bg-gradient-to-r from-violet-500 to-transparent w-full mx-auto animate__animated animate__fadeInUp animate__delay-2s">
                     <div className="bg-gradient-to-r from-zinc-900 to-transparent text-white rounded-xl p-4">
                         <div className="grid grid-cols-3 gap-4 font-semibold text-center mb-2 text-base md:text-xl">
                             <div>Species</div>
@@ -74,7 +74,7 @@ const PokemonDetail = () => {
 
                 <div className="w-full space-y-4 mt-8">
                     {pokemon.stats.map((s, i) => (
-                        <div key={i}>
+                        <div key={i} className="animate__animated animate__fadeInUp animate__delay-3s">
                             <div className="flex justify-between mb-1 font-medium text-white">
                                 <span className="capitalize text-base md:text-xl">{s.stat.name}</span>
                                 <span className="text-sm opacity-80 md:text-lg">{s.base_stat}</span>

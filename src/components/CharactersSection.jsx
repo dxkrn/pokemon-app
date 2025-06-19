@@ -44,7 +44,7 @@ const CharactersSection = () => {
                 if (sectionRef.current) {
                     sectionRef.current.scrollIntoView({ behavior: 'smooth' });
                 }
-            }, 100);
+            }, page == 0 ? 2000 : 100);
         }
     }, [loading]);
 
@@ -53,14 +53,14 @@ const CharactersSection = () => {
     return (
         <section id="characters" className="px-8" ref={sectionRef}>
             <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
-                <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
+                <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12  animate__animated animate__fadeInUp">
                     <h2 className="mb-2 text-2xl md:text-4xl font-extrabold text-white">Meet the Characters</h2>
                     <p className="mb-24 md:mb-32 font-light text-gray-500 sm:text-xl dark:text-gray-400">
                         Explore all Pokémon species from every region. Click on a Pokémon to view details like types, abilities, evolutions, and stats.
                     </p>
                 </div>
 
-                <div className="space-y-8 grid grid-cols-1 gap-x-0 gap-y-24 md:grid-cols-3 lg:grid-cols-4  md:gap-x-8 md:gap-y-24 lg:space-y-0">
+                <div className="space-y-8 grid grid-cols-1 gap-x-0 gap-y-24 md:grid-cols-3 lg:grid-cols-4  md:gap-x-8 md:gap-y-24 lg:space-y-0  animate__animated animate__fadeInUp animate__delay-1s">
                     {pokemons.map((pokemon) => {
                         const defaultImage = pokemon?.sprites?.other?.home?.front_default;
                         const shinyImage = pokemon?.sprites?.other?.home?.front_shiny;

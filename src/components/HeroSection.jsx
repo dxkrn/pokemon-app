@@ -3,7 +3,7 @@ const HeroSection = () => (
         <div className="relative overflow-hidden">
             <img src="/assets/gradient.png" className="absolute -top-112 left-1/2 -translate-x-1/2 w-[150%] h-[150%] md:w-[200%] md:h-[200%] md:-top-200 md:-right-90 object-cover z-0" />
             <div className="relative z-10 grid max-w-screen-xl px-8 pt-20 pb-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-                <div className="mr-auto place-self-center lg:col-span-7">
+                <div className="mr-auto place-self-center lg:col-span-7 animate__animated animate__fadeInUp">
                     <h2 className="text-lg font-bold pt-10 pb-2 md:text-xl lg:text-2xl">#DISCOVER YOUR FAVORITE POKÉMON</h2>
                     <h1 className="max-w-2xl mb-4 text-3xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">
                         Find Them. Know Them. Love Them.
@@ -21,7 +21,7 @@ const HeroSection = () => (
                     </a>
                 </div>
                 {/* HERO IMAGE */}
-                <div className="hidden md:w1/2 lg:mt-0 lg:col-span-5 lg:flex">
+                <div className="hidden md:w1/2 lg:mt-0 lg:col-span-5 lg:flex animate__animated animate__fadeInUp animate__delay-1s">
                     <img src="/assets/hero-2.png" alt="Pokemon" />
                 </div>
             </div>

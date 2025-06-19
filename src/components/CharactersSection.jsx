@@ -1,16 +1,27 @@
 import { useEffect, useState } from 'react';
 import { getPokemonList, getPokemonDetail } from '../api/pokeapi';
 import CharacterCard from './CharacterCard';
+import Pagination from './Pagination';
 
 const CharactersSection = () => {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // NOTE: PAGINATION STATE
+    const [page, setPage] = useState(0);
+    const [totalCount, setTotalCount] = useState(0);
+
+    const limit = 12;
+    const offset = page * limit;
+    const totalPages = Math.ceil(totalCount / limit);
+
     // NOTE: FETCH POKEMON DATA
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             try {
-                const list = await getPokemonList();
+                const list = await getPokemonList(limit, offset);
+                setTotalCount(list.count);
                 const details = await Promise.all(
                     list.results.map((p) => getPokemonDetail(p.name))
                 );
@@ -23,12 +34,12 @@ const CharactersSection = () => {
         };
 
         fetchData();
-    }, []);
+    }, [page]);
 
     if (loading) return <p className="text-center text-white">Loading Pokémons...</p>;
 
     return (
-        <section id="characters" className='px-8'>
+        <section id="characters" className="px-8">
             <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
                 <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                     <h2 className="mb-2 text-2xl md:text-4xl font-extrabold text-white">Meet the Characters</h2>
@@ -36,6 +47,7 @@ const CharactersSection = () => {
                         Explore all Pokémon species from every region. Click on a Pokémon to view details like types, abilities, evolutions, and stats.
                     </p>
                 </div>
+
                 <div className="space-y-8 grid grid-cols-1 gap-x-0 gap-y-24 md:grid-cols-3 lg:grid-cols-4  md:gap-x-8 md:gap-y-24 lg:space-y-0">
                     {pokemons.map((pokemon) => (
                         <CharacterCard
@@ -51,6 +63,12 @@ const CharactersSection = () => {
                         />
                     ))}
                 </div>
+
+                <Pagination
+                    page={page}
+                    totalPages={totalPages}
+                    onPageChange={(newPage) => setPage(newPage)}
+                />
             </div>
         </section>
     );

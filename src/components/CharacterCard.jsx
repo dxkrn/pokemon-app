@@ -10,7 +10,7 @@ const CharacterCard = ({ id, name, image, stats }) => (
                     <img src={image} alt={name} className="w-64 md:w-48" />
                 </div>
 
-                <h3 className="mb-4 text-2xl font-medium mt-12">{name}</h3>
+                <h3 className="capitalize mb-4 text-2xl font-medium mt-12">{name}</h3>
                 <div className="flex gap-4">
                     <div className="flex items-center"><img src="/assets/icon-hp.svg" className="w-5" /><p className="ml-1">{stats.hp}</p></div>
                     <div className="flex items-center"><img src="/assets/icon-attack.svg" className="w-5" /><p className="ml-1">{stats.atk}</p></div>

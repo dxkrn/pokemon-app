@@ -39,9 +39,9 @@ const CharactersSection = () => {
                 <div className="space-y-8 grid grid-cols-1 gap-x-0 gap-y-24 md:grid-cols-3 lg:grid-cols-4  md:gap-x-8 md:gap-y-24 lg:space-y-0">
                     {pokemons.map((pokemon) => (
                         <CharacterCard
-                            key={pokemon.id}
+                            id={pokemon.id}
                             name={pokemon.name}
-                            image={pokemon.sprites.other['home'].front_default}
+                            image={pokemon.sprites.other.home.front_default}
                             stats={{
                                 hp: pokemon.stats[0].base_stat,
                                 atk: pokemon.stats[1].base_stat,

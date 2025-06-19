@@ -61,19 +61,28 @@ const CharactersSection = () => {
                 </div>
 
                 <div className="space-y-8 grid grid-cols-1 gap-x-0 gap-y-24 md:grid-cols-3 lg:grid-cols-4  md:gap-x-8 md:gap-y-24 lg:space-y-0">
-                    {pokemons.map((pokemon) => (
-                        <CharacterCard
-                            key={pokemon.id}
-                            id={pokemon.id}
-                            name={pokemon.name}
-                            image={pokemon.sprites.other.home.front_default}
-                            stats={{
-                                hp: pokemon.stats[0].base_stat,
-                                atk: pokemon.stats[1].base_stat,
-                                def: pokemon.stats[2].base_stat,
-                            }}
-                        />
-                    ))}
+                    {pokemons.map((pokemon) => {
+                        const defaultImage = pokemon?.sprites?.other?.home?.front_default;
+                        const shinyImage = pokemon?.sprites?.other?.home?.front_shiny;
+                        const placeholder = "/assets/character-placeholder.png";
+
+                        const selectedImage = defaultImage || shinyImage || placeholder;
+                        return (
+
+                            <CharacterCard
+                                key={pokemon.id}
+                                id={pokemon.id}
+                                name={pokemon.name}
+                                image={selectedImage}
+                                stats={{
+                                    hp: pokemon.stats[0].base_stat,
+                                    atk: pokemon.stats[1].base_stat,
+                                    def: pokemon.stats[2].base_stat,
+                                }}
+                            />
+                        );
+                    }
+                    )}
                 </div>
 
                 <Pagination

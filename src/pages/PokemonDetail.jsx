@@ -33,6 +33,13 @@ const PokemonDetail = () => {
     if (loading) return <div className='w-full h-screen mx-auto flex items-center justify-center'><p>Loading...</p></div>;
     if (!pokemon) return <div className='w-full h-screen mx-auto flex items-center justify-center'><p>Pokémon not found!</p></div>;
 
+    // NOTE: Select Image
+    const defaultImage = pokemon?.sprites?.other?.home?.front_default;
+    const shinyImage = pokemon?.sprites?.other?.home?.front_shiny;
+    const placeholder = "/assets/character-placeholder.png";
+
+    const selectedImage = defaultImage || shinyImage || placeholder;
+
     return (
         <div className="relative w-full overflow-hidden">
             <img
@@ -42,7 +49,7 @@ const PokemonDetail = () => {
 
             <div className="relative z-10 flex flex-col items-center px-8 pt-8 pb-8 ">
                 <div className="md:w1/2 lg:mt-0 lg:col-span-5 lg:flex">
-                    <img src={pokemon.sprites.other.home.front_default} alt={pokemon.name} />
+                    <img src={selectedImage} alt={pokemon.name} />
                 </div>
                 <h1 className="capitalize my-4 text-3xl font-extrabold md:my-8 md:text-5xl xl:text-6xl dark:text-white">
                     {pokemon.name}

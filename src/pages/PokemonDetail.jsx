@@ -21,6 +21,15 @@ const PokemonDetail = () => {
         fetchPokemon();
     }, [id]);
 
+    useEffect(() => {
+        if (!loading) {
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 100);
+        }
+    }, [loading]);
+
+
     if (loading) return <div className='w-full h-screen mx-auto flex items-center justify-center'><p>Loading...</p></div>;
     if (!pokemon) return <div className='w-full h-screen mx-auto flex items-center justify-center'><p>Pokémon not found!</p></div>;
 

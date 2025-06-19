@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { getPokemonList, getPokemonDetail } from '../api/pokeapi';
 import CharacterCard from './CharacterCard';
 import Pagination from './Pagination';
 
 const CharactersSection = () => {
+    const sectionRef = useRef(null);
+
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -36,10 +38,20 @@ const CharactersSection = () => {
         fetchData();
     }, [page]);
 
+    useEffect(() => {
+        if (!loading) {
+            setTimeout(() => {
+                if (sectionRef.current) {
+                    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, [loading]);
+
     if (loading) return <p className="text-center text-white">Loading Pokémons...</p>;
 
     return (
-        <section id="characters" className="px-8">
+        <section id="characters" className="px-8" ref={sectionRef}>
             <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
                 <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                     <h2 className="mb-2 text-2xl md:text-4xl font-extrabold text-white">Meet the Characters</h2>

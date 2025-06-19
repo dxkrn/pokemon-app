@@ -13,12 +13,12 @@ const HeroSection = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setAnimate(false); // reset animasi
+            setAnimate(false);
             setTimeout(() => {
                 setCurrentImage((prev) => (prev + 1) % heroImages.length);
-                setAnimate(true); // aktifkan animasi ulang
-            }, 100); // jeda sedikit sebelum ganti gambar agar animasi tidak tumpang tindih
-        }, 2000); // ganti gambar setiap 4 detik
+                setAnimate(true);
+            }, 100);
+        }, 2000);
 
         return () => clearInterval(interval);
     }, []);

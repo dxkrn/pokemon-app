@@ -1,7 +1,7 @@
 const HeroSection = () => (
-    <section id="hero" className="w-screen h-screen">
+    <section id="hero" className="w-full h-full">
         <div className="relative overflow-hidden">
-            <img src="/assets/gradient.png" className="absolute -top-112 -right-0 w-[150%] h-[150%] md:w-[200%] md:h-[200%] md:-top-200 md:-right-90 object-cover z-0" />
+            <img src="/assets/gradient.png" className="absolute -top-112 left-1/2 -translate-x-1/2 w-[150%] h-[150%] md:w-[200%] md:h-[200%] md:-top-200 md:-right-90 object-cover z-0" />
             <div className="relative z-10 grid max-w-screen-xl px-8 pt-20 pb-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
                 <div className="mr-auto place-self-center lg:col-span-7">
                     <h2 className="text-lg font-bold pt-10 pb-2 md:text-xl lg:text-2xl">#DISCOVER YOUR FAVORITE POKÉMON</h2>
